@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Calculator</title>
+    <style>
+        body {
+            background: linear-gradient(45deg, #d49bd2, #113a9f);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background-color: #a5b3e5;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(138, 178, 215, 0.2);
+            text-align: center;
+            width: 320px;
+        }
+        .clc h1 {
+            color: #fff;
+        }
+        .input {
+            width: calc(100% - 20px);
+            font-size: 18px;
+            margin: 10px 0;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #eee;
+            text-align: center;
+        }
+        .btn {
+            width: 100%;
+            margin: 5px 0;
+            font-size: 18px;
+            border-radius: 5px;
+            border: none;
+            background: #6200ea;
+            color: white;
+            cursor: pointer;
+            padding: 10px;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background: #3700b3;
+        }
+        .text-result {
+            background: #3941c7;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="clc">
+        <h1>Calculator</h1>
+        <input type="number" id="input1" class="input" placeholder="Enter first number"/>
+        <input type="number" id="input2" class="input" placeholder="Enter second number"/>
+        <p id="result" class="text-result">Result will be shown here</p>
+        
+        <button class="btn" onclick="areaRectangle()">Area of Rectangle</button>
+        <button class="btn" onclick="areaCircle()">Area of Circle</button>
+        <button class="btn" style="background-color: #5373c6;" onclick="reset()">Reset</button>
+    </div>
+</div>
+
+<script>
+    function areaRectangle() {
+        const length = document.getElementById("input1").value;
+        const width = document.getElementById("input2").value;
+        const resultElement = document.getElementById("result");
+
+        if (length === "" || width === "") {
+            alert("Please enter both length and width");
+            return;
+        }
+
+        const area = parseFloat(length) * parseFloat(width);
+        resultElement.innerText = `Area of Rectangle: ${area}`;
+    }
+
+    function areaCircle() {
+        const radius = document.getElementById("input1").value;
+        const resultElement = document.getElementById("result");
+
+        if (radius === "") {
+            alert("Please enter the radius");
+            return;
+        }
+
+        const area = Math.PI * Math.pow(parseFloat(radius), 2);
+        resultElement.innerText = `Area of Circle: ${area.toFixed(2)}`;
+    }
+
+    function reset() {
+        document.getElementById("input1").value = "";
+        document.getElementById("input2").value = "";
+        document.getElementById("result").innerText = "Result will be shown here";
+    }
+</script>
+
+</body>
+</html>

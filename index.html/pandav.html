@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+.bg-tomato{
+    background-color: tomato;
+    color: white;
+}
+.bg-chocolate{
+    background-color: brown
+
+}
+.bg-mango{
+    background-color: yellow
+   
+}
+    </style>
+</head>
+<body>
+    <h1 class="bg-tomato" id="heading"> i love java script</h1>
+    <button type="button" onclick="chocolate()"> chocolate</button>
+    <button type="button" onclick="tomato()"> tomato</button>
+
+    <script>
+function tomato(){
+const headingElement = document.getElementById(`heading`);
+
+headingElement.classList.remove("bg-chocolate","bg-mango");
+headingElement.classList.add("bg-tomato");
+}
+
+function chocolate(){
+const headingElement = document.getElementById(`heading`);
+
+headingElement.classList.remove("bg-tomato","bg-mango");
+headingElement.classList.add("bg-chocolate");
+}
+
+    </script>
+</body>
+</html>
